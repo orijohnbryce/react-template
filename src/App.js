@@ -1,8 +1,13 @@
+import Counter from "./components/Counter";
+import EffectExample from "./components/EffectExample";
+import ImageSwapper from "./components/ImageSwapper";
 
 function App() {
+    
   return (
     <div>
-      Hello React Template!!
+      {/* <Counter/>       */}
+        <EffectExample/>        
     </div>
   );
 }
