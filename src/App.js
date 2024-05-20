@@ -1,5 +1,6 @@
 import Counter from "./components/Counter";
 import People from "./components/People";
+import Products from "./components/Products";
 import Person from "./models/person-model";
 
 const people = [
@@ -14,7 +15,8 @@ function App() {
   return (
     <div>
       {/* <Counter/> */}
-      <People people={people}/>
+      {/* <People people={people}/> */}
+      <Products/>
     </div>
   );
 }

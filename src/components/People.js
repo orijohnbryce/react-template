@@ -9,10 +9,10 @@ const People = ({ people }) => {
     const [ps, setPs] = useState(people)
 
     function deleteFirstPerson() {
-        const temp = [...ps];        
-        temp.shift()
-        setPs(temp)
-        console.log(temp);
+        // const temp = [...ps];        
+        // temp.shift()
+        // setPs(temp)        
+        setPs([...ps.slice(1, ps.length)])
     }    
 
     return (
