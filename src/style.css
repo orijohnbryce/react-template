@@ -1,0 +1,7 @@
+label {
+    display: block;
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
+} 
