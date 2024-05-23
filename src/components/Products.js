@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { deleteAllProducts, getAllProducts } from "../client/product-client";
+import { deleteFirstProduct, getAllProducts } from "../client/product-client";
 import Product from "./Product";
 
 const Products = () => {
@@ -13,7 +13,7 @@ const Products = () => {
   }
 
   function handleDelete() {
-    deleteAllProducts().then(() => {
+    deleteFirstProduct().then(() => {
       reload();
     });
   }
