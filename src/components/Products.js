@@ -8,11 +8,13 @@ const Products = () => {
     
     useEffect(()=>{
         getProducts().then((res)=>{setProducts(res)})
-    }, [])
-
+    }, [])    
+    
   return (
     <div>
-        {products.map((p)=><Product key={p.id} p={p}/>)}
+        {products.map(
+            (p)=><Product key={p.id} p={p}/>
+            )}          
     </div>
   )
 }

@@ -3,9 +3,19 @@ import ProductModel from "../models/product-model";
 export async function getProducts() {
     const res = await fetch("http://localhost:3030/api/products/")
     const products = await res.json()
-
+    
     const resProducts = products.map((p) =>
-        new ProductModel(p.id, p.name, p.price, p.stock, p.imageUrl))
+        new ProductModel(p.id, p.name, 
+                        p.price, p.stock, 
+                        p.imageUrl))
 
     return resProducts;
+}
+
+
+export async function getProduct(id) {
+    const res = await fetch("http://localhost:3030/api/products/" + id)
+    const p = await res.json()
+    
+    return new ProductModel(p.id, p.name, p.price, p.stock, p.imageUrl)    
 }

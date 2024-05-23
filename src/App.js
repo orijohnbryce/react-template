@@ -1,6 +1,7 @@
 import Counter from "./components/Counter";
 import People from "./components/People";
 import Products from "./components/Products";
+import RandomProduct from "./components/RandomProduct";
 import Person from "./models/person-model";
 
 const people = [
@@ -16,7 +17,8 @@ function App() {
     <div>
       {/* <Counter/> */}
       {/* <People people={people}/> */}
-      <Products/>
+      {/* <Products/> */}
+      <RandomProduct/>
     </div>
   );
 }
