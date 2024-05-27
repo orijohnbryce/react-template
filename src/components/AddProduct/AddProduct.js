@@ -28,7 +28,7 @@ const AddProduct = () => {
                     placeholder='enter price' className='add-product' />
                 <input value={stock} onChange={(e) => { setStock(e.target.value) }} type="number"
                     placeholder='enter stock amount' className='add-product' />
-                <input value={imageUrl} onChange={(e) => { setImageUrl(e.target.value) }} 
+                <input value={imageUrl} maxLength={100} onChange={(e) => { setImageUrl(e.target.value) }} 
                     placeholder='enter image-url' className='add-product' />
             
                 <button type='submit'> Add </button>                
