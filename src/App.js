@@ -3,11 +3,11 @@ import AddProduct from "./components/AddProduct/AddProduct";
 
 function App() {
 
-    getProducts()
+    // getProducts()
     
   return (
     <div>
-      {/* <AddProduct/> */}
+      <AddProduct/>
     </div>
   );
 }
