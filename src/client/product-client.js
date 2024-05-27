@@ -1,38 +1,74 @@
-import axios from "axios";
-import appConfig from "../config";
 import ProductModel from "../models/product-model";
+import { apiCall } from "./api";
 
 export async function getAllProducts() {
-    const res = await fetch(appConfig.serverUrl + "products")
-    const resJ = await res.json()
-    
-    const products = resJ.map(p=>new ProductModel(p))
-    
-    return products
+  const res = await apiCall("products")
+  if (res.status) {
+    return res.data.map((p) => new ProductModel(p));
+  } else {
+    return []
+  }
 }
+// export async function getAllProducts() {
+//   try {
+//     const res = await axios.get(appConfig.serverUrl + "products");
+//     const products = res.data.map((p) => new ProductModel(p));
+//     return products;
+//   } catch (error) {
+//     console.log(error);
+//     alert("Error at getAllProducts! info:" + error);
+//     return [];
+//   }
+// }
 
-export async function deleteFirstProduct() {
-    const res = await fetch(appConfig.serverUrl + "products")
-    const resJ = await res.json()
-
-    await fetch(appConfig.serverUrl + "products/" + resJ[0].id, {method: 'DELETE'})
-    // resJ.forEach(p => {
-    //     fetch(appConfig.serverUrl + "products/" + p.id, {method: 'DELETE'})
-    // });
+export async function deleteProduct(id) {
+  const res = await apiCall("products/" + id, 'DELETE')
+  if (res.status) {
+    console.log(`Product ${id} deleted!`);
+    return true;
+  } else {
+    return false;
+  }
 }
+// export async function deleteProduct(id) {
+//   try {
+//     const res = await axios.delete(appConfig.serverUrl + `products/${id}`, {
+//       method: "DELETE",
+//     });
+//     console.log(res);
+//     return res;
+//   } catch (error) {
+//     alert("Error at deleteProduct! info:" + error);
+//     return false;
+//   }
+// }
 
-export async function addProduct(product) {
-    try {
-        const resJ = await axios({
-            method: "POST",
-            url: appConfig.serverUrl + "products",
-            headers: {},
-            data: {"name": 'David', price: 123, stock: 4}
-        })        
-        console.log(resJ);
-        return resJ;
-      } catch (error) {
-          alert("Error!");
-          console.log(error);
-      }
+export async function addProduct(product) {  
+  const res = await apiCall("products", 'POST', {}, product)
+  if (res.status) {
+    console.log(`Product ${res.data.id} created!`);
+    return true;
+  } else {
+    return false;
+  }  
 }
+// export async function addProduct(product) {
+//   try {
+//     const resJ = await axios({
+//       method: "POST",
+//       url: appConfig.serverUrl + "products",
+//       headers: {},
+//       data: product,
+//     });
+//     return resJ;
+//   } catch (error) {
+//     if (error.response) {
+//       alert("Error at addProduct! info:" + error.response.data);
+//       console.log(error.response.data);
+//     } else {
+//       alert("Error at addProduct! info:" + error);
+//       console.log(error);
+//     }
+//     return false;
+//   }
+// }

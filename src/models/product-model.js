@@ -1,5 +1,4 @@
-class ProductModel{
-    
+class ProductModel{    
     constructor(productObject) {
         this.id = productObject.id
         this.name = productObject.name
