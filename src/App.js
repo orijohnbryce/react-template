@@ -1,8 +1,13 @@
+import { getProducts } from "./api/products-api";
+import AddProduct from "./components/AddProduct/AddProduct";
 
 function App() {
+
+    getProducts()
+    
   return (
     <div>
-      Hello React Template!!
+      {/* <AddProduct/> */}
     </div>
   );
 }
