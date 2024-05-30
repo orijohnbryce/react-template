@@ -20,9 +20,9 @@ const FastTyping = () => {
         }
     }
     return (
-        <div>
+        <div>            
             <h1> Wellcome to FastTyping.com </h1>
-            <h3> press: {needed} </h3>
+            <h3 style={{fontSize: '64px'}}> {needed} </h3>
 
             <input autoFocus style={{ backgroundColor: color }}
                 value={char} onChange={handleType} />
