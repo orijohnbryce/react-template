@@ -4,7 +4,7 @@ const chars = "abcdefghijklmnopqrstuvwxyz ";
 
 const FastTyping = () => {
     const [char, setChar] = useState("")
-    const [needed, setNeeded] = useState("F")
+    const [needed, setNeeded] = useState("f")
     const [color, setColor] = useState("green")
 
     const handleType = (e) => {
