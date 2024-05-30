@@ -8,9 +8,10 @@ const FastTyping = () => {
     const [color, setColor] = useState("green")
 
     const handleType = (e) => {
+        // console.log(`needed: ${needed}. typed: ${e.target.value}`);
         if (needed === e.target.value) {
             setColor("green")
-            let newChar = Math.floor(Math.random() * chars.length) +1;
+            let newChar = Math.floor(Math.random() * chars.length);
             newChar = chars[newChar];
             setNeeded(newChar);
 
@@ -23,7 +24,7 @@ const FastTyping = () => {
             <h1> Wellcome to FastTyping.com </h1>
             <h3> press: {needed} </h3>
 
-            <input style={{ backgroundColor: color }}
+            <input autoFocus style={{ backgroundColor: color }}
                 value={char} onChange={handleType} />
         </div>
     )
