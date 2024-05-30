@@ -1,8 +1,14 @@
 import apiCall from "./apiCall";
 
-export async function getProducts() {
+export async function getProducts(id=false) {
     
-    const res = await apiCall("products", "GET")
+    let res = null;
+    if (!id){
+        res = await apiCall("products", "GET")
+    }else{
+        res = await apiCall("products/"+id, "GET")
+    }
+
     if (res.status) {      
         return  res.data
     } else {
