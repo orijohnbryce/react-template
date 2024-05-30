@@ -1,13 +1,7 @@
-import { useState } from "react";
-import AddProduct from "./components/AddProduct/AddProduct";
-import Products from "./components/Products/Products";
-import DeleteProduct from "./components/DeleteProduct/DeleteProduct";
 import SiteRoutes from "./components/SiteRoutes";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function App() {
-
-    const [whatToShow, setWhatToShow] = useState("products")
 
     const location = useLocation()
     const nav = useNavigate()
