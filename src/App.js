@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { getProducts } from "./api/products-api";
 import AddProduct from "./components/AddProduct/AddProduct";
 import Products from "./components/Products/Products";
+import DeleteProduct from "./components/DeleteProduct/DeleteProduct";
 
 function App() {
 
     const [whatToShow, setWhatToShow] = useState("products")
     
+    const navToProducts = ()=>{
+        setWhatToShow("products")
+    }
 
   return (
     <div>
@@ -19,10 +22,11 @@ function App() {
 
 
       {whatToShow === "products" && <Products/>}
-      {whatToShow === "add-product" && <AddProduct/>}
-      {whatToShow === "delete-product" && <div> Delete product </div>}
-
-
+      {whatToShow === "add-product" && 
+            <AddProduct onSuccess={navToProducts}/>}
+      {whatToShow === "delete-product" 
+            && <DeleteProduct 
+            onDeleted={navToProducts}/>}
     </div>
   );
 }

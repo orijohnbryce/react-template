@@ -2,8 +2,10 @@ import { useState } from 'react'
 
 import "./AddProduct.css";
 import { addProduct } from '../../api/products-api';
+import { ProductModel } from '../../models/product-model';
 
-const AddProduct = () => {
+
+const AddProduct = (props) => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState();
     const [stock, setStock] = useState();
@@ -11,12 +13,16 @@ const AddProduct = () => {
 
     const handleSubmit = async (e) => {  
         e.preventDefault()              
-        addProduct({
-            name,
-            price,
-            stock,
-            imageUrl,
-        })
+
+        const product = new ProductModel(name, price, stock, imageUrl)
+        
+        const res = await addProduct(product)
+        if (res){
+            alert("Prodcut added successfully!") 
+            
+            // navigate to "products" page:
+            props.onSuccess()
+        }
     }
 
     return (

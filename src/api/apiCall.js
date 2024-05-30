@@ -18,7 +18,9 @@ export default async function apiCall(url, method, headers = {}, data = null) {
             data: res.data
         }
 
-    } catch (error) {
-        return { status: false }
+    } catch (error) {                
+        return { status: false,
+                 errorMessage: error.message, 
+                 data: error.response?.data }
     }
 }
