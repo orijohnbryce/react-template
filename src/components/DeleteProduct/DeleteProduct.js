@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { deleteProduct } from '../../api/products-api'
+import { useParams } from 'react-router-dom'
 
 const DeleteProduct = ({onDeleted}) => {
 
     const [id, setId] = useState()
 
+    const params = useParams()   
+
+    useEffect(()=>{
+        if (params.id){
+            setId(params.id)
+        }
+    }, [])
 
     const handleSubmit = async ()=>{
 
