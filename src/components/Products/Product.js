@@ -1,6 +1,6 @@
 const Product = ({p}) => {
   return (
-    <div>
+    <div className="product">
         <p> {p.id} - {p.name} </p>        
         <p> price: {p.price}</p>
         <p> stock: {p.stock}</p>
